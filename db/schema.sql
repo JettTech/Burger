@@ -1,0 +1,12 @@
+DROP DATABASE IF EXISTS burgers_db;
+
+CREATE DATABASE burgers_db;
+USE burgers_db;
+
+CREATE TABLE burgers (
+	id INT NOT NULL AUTO_INCREMENT,
+	burger_name VARCHAR(50) NULL,
+	devoured TINYINT(1) NULL, 	-- //BOOLEAN /BOOL
+	date TIMESTAMP NOT NULL,    --**** 'YYYY-MM-DD HH:MM:SS' format:: CHECK ON SYNTAX IMPLEMENTATION. **** 
+	PRIMARY KEY (id)
+);
