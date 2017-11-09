@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 var connection //just creates the connection varibabe (...to be referenced later on)
 
-if (process.env.JAWSDB_URL) { //IF the process environemnt === JAWSDB(the heroku add-i/on DB)...
+if (process.env.JAWSDB_URL) { //IF the server contains the JAWS_URL environment variable!! //THUS if the process environment === JAWSDB(the heroku add-on DB), which automatically saves the host mysql connection detials into the JAWSDB environment VAR!!!!...
 	connection = mysql.createConnection(process.env.JAWSDB_URL);
 } 
 else {
