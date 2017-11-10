@@ -19,6 +19,6 @@ connection.connect(function(error) { // connection starts >>> connection.connect
 	}
 	console.log("You are connected as id: " + connection.id);
 });
-module.exports = connection;
+module.exports = connection; //this will be passed into the ORM.JS file
 
 

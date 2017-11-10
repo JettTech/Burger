@@ -1,0 +1,76 @@
+<div class="container-fluid background">
+	<div class="row">
+		
+		<div id="top-bar" class="col-sm-12">
+			<header class=" text-center">
+				<h1>Time to Eat Your Burger!</h1>	
+				<img src="/assets/img/ultimate-hamburger.jpg" alt="Your Burger">
+			</header>			
+		</div>
+
+		<div class="task col-sm-6 text-center">
+			<div class="row">
+				{{#each burger_data}}
+					{{#unless this.devoured}}
+
+					<div class="col-sm-9 text-center">
+						<pre>
+						{{this.id}}. {{this.burger_name}}
+						</pre>
+						{{this.Date}};
+					</div>
+					<div class="col-xs-3 text-center">
+						<form method="POST" action="/burgers/update?_method=PUT"> <!-- //PUT BUTTON/OPTION -->
+							<input type="hidden text" name="burger_id" value="{{this.id}}">
+							<br/>
+							<button type="submit" class="btn btn-default">Devour it!</button>
+						</form>
+					</div>
+
+					{{/unless}} <!-- closing out the "unless >> handlbars-text" -->
+				{{/each}} <!-- closing out the "each >> handlbars-text" -->
+			</div>
+		</div>
+
+		<div class=" task col.col-sm-6 text-center">
+			{{#each burger_data}}
+				{{#if this.devoured}}					
+
+					<form>
+						<input class="form-control" type="text-center" placeholder="{{this.id}}. {{this.burger_name}}" readonly>
+					</form>
+				
+				{{/if}}
+			{{/each}}
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 text-center enter_section">	
+			<div>
+				<p>We have the following Burger Options on our Menu today:</p>
+				<ul>
+				<li>Chili-Cheeseburger</li>
+					<li>Venison Burger</li>
+					<li>Lamb Burger with Tzaski Sauce</li>
+					<li>Seared Tuna Burger</li>
+					<li>Portabella Burger</li>
+					<li>Bean Burger</li>
+					<li>The Ultimate Hamburger</li>
+				</ul>
+
+				<br/>
+				<p>Please find your burger of choice from the list above, enter into the input box, and press submit to receive your order.</p>
+			</div>		
+			<form action="/burgers/create" method="POST">  <!-- Create BUTTON/OPTION -->
+				<input id="enter-text" class="form-control" type="text" name="burger_name">
+				<button id="enter-button" class="btn btn-primary" type="submit">Submit My Order</button>
+			</form>
+		</div>		
+	</div>
+</div>
+
+		
+
