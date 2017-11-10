@@ -13,10 +13,10 @@ INSERT INTO burgers (burger_name, devoured)
 VALUES ("Portabella Burger", FALSE);
 
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("In-n-Out Handburger with Animal Sauce", FALSE);
+VALUES ("In-n-Out Handburger", FALSE);
 
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("Venison Burger with Horseradish Sauce", FALSE);
+VALUES ("Venison Burger with Horseradish", FALSE);
 
 INSERT INTO burgers (burger_name, devoured)
 VALUES ("Double Chili Cheeseburger", FALSE);
