@@ -1,11 +1,24 @@
-body {
-  width: 99%;
-  height: 900px;
-  background-color: #fc6;
+* {
+  width: 100%;
+  height: 1000px;
+  background-color: #b48484;
 }
 
-#top-bar {
-  margin-top: 28px;
+img{
+  height: 200px;
+  width: 300px;
+  margin-top: 500px;
+}
+
+.container-fluid {
+  background-image: url(/assets/img/emptyPlate_bbq.jpg);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+#intro-bar {
+  margin-top: 500px;
 }
 
 .spacing-reset {
@@ -21,25 +34,13 @@ body {
   border: 0;
 }
 
-@media (min-width: 1200px) {
-  .container {
-    width: 990px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    width: 990px;
-  }
-}
-
-.enter_section {
+.enter-section {
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
 }
 
-#enter_text {
+#enter-text {
   width: 400px;
   height: 80px;
   padding-top: 10px;
@@ -54,15 +55,21 @@ body {
   border-width: 3px;
 }
 
-.button-size {
-  padding-bottom: 20px;
-}
-
-#text-enter-button {
-  margin-top: 10px;
-  margin-bottom: 18px;
+#enter-button {
+  background-color: #77565a;
+  width:40%;
+  margin-left: 10px
 }
 
 h1 {
   color: #f30;
+}
+
+li {
+  font-weight: bold;
+}
+
+#mainPic {
+  height: 400px;
+  width: 400px;
 }
