@@ -16,15 +16,15 @@ var burger = {
 	},
 	update: function(id, callback) {
 		var condition = "id = " + id;
-		orm.update("burgers", [
+		orm.update("burgers", {
 			devoured: true
-		], condition, callback);
+		}, condition, callback);
 	} //,
 	// delete: function(id, callback) {
 	// 	var condition = "id = " + id;
-	// 	orm.update("burgers", [
-	// 		devoured:true
-	// 	], condition, callback);
+	// 	orm.update("burgers", {
+			//devoured: true
+		//}, condition, callback);
 	// }
 };
 module.exports = burger; //exporeted out ...to be imported into the controller.js file

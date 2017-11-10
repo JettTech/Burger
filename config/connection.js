@@ -1,5 +1,5 @@
 var mysql = require("mysql");
-var connection //just creates the connection varibabe (...to be referenced later on)
+var connection; //just creates the connection varibabe (...to be referenced later on)
 
 if (process.env.JAWSDB_URL) { //IF the server contains the JAWS_URL environment variable!! //THUS if the process environment === JAWSDB(the heroku add-on DB), which automatically saves the host mysql connection detials into the JAWSDB environment VAR!!!!...
 	connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -17,7 +17,7 @@ connection.connect(function(error) { // connection starts >>> connection.connect
 	if(error) {
 		return console.log("An error occured when connecting " + error.stack);
 	}
-	console.log("You are connected as id: " + connection.id);
+	console.log("You are connected as id: " + connection.id);  // !! WHY is this undefined??? !!
 });
 module.exports = connection; //this will be passed into the ORM.JS file
 

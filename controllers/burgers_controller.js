@@ -24,7 +24,7 @@ router.get("/", function(request,result){
 })
 
 router.get("/burgers", function(request, result){
-	burger.all(function s(burgerData) {
+	burger.all(function (burgerData) {
 		result.render("index", {burger_data: burgerData});
 	});
 });
@@ -49,3 +49,4 @@ router.put("/burgers/update", function(request, result) {
 // 		result.redirct("/");
 // 	});
 // });
+module.exports = router; //exporting the router, and all its routes (for ue on the server.js)
