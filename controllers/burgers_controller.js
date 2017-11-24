@@ -1,7 +1,7 @@
 //ROLE OF THE Controller.JS FILE
 // ===========================================================
 //This CONNECTS the front-end/Client-end TO THE back END.
-//IT "ROUTES" the request to the correct "extention," which leads to a chain
+//...and "ROUTES" the request to the correct "extention," which leads to a chain
 //  of sequential functions (between burger.js, and orm.js), which alter
 //    the database && WEB-client display through "CRUD" stage/state changes.
 
@@ -32,21 +32,21 @@ router.get("/burgers", function(request, result){
 router.post("/burgers/create", function(request, result){
 	burger.create(request.body.burger_name, function(result){
 		console.log(result);
-		result.redirect("/");
+		result.redirect("/"); //reloads (re-renders) the ROOT PAGE 
 	});
 });
 
 router.put("/burgers/update", function(request, result) {
 	burger.update(request.body.burger_id, function(result) {
 		console.log(result);
-		result.redirct("/");
+		result.redirect("/"); //reloads (re-renders) the ROOT PAGE 
 	});
 });
 
-// router.delete("/burgers/delete", function(request, result) {
-// 	burger.delete(request.body.burger_id, function(result) {
-// 		console.log(result);
-// 		result.redirct("/");
-// 	});
-// });
+router.delete("/burgers/delete", function(request, result) {
+	burger.delete(request.body.burger_id, function(result) {
+		console.log(result);
+		result.redirect("/");
+	});
+});
 module.exports = router; //exporting the router, and all its routes (for ue on the server.js)

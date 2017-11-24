@@ -13,17 +13,14 @@
 	<div class="row">
 		<div class="enter-section col-sm-6" style="padding-left: 10%">	
 			<div>
-				<h4>We have the following Burger <br/> Options today:</h4>
+				<h4>We have the following <br/> Burger Options <br/> today:</h4>
 				<br/>
 				<ul>
-				<li>Chili-Cheeseburger</li>
-					<li>Venison Burger</li>
-					<li>Lamb Burger with Tzaski Sauce</li>
-					<li>Seared Tuna Burger</li>
-					<li>Portabella Burger</li>
-					<li>Bean Burger</li>
-					<li>In-n-Out Burger</li>
-					<li>The Ultimate Hamburger</li>
+				{{#each burger_data}}
+
+					<li>{{this.burger_name}}</li>		
+
+				{{/each}} 
 				</ul>
 			</div>	
 		</div>
@@ -41,37 +38,40 @@
 
 	<div class="row" style="padding-top:55px">
 		<div class="task col-sm-6">
-			<h4>Burgers Ordered:</h4>
+			<h4 class="text-center">Burgers Ordered:</h4>
 
 			{{#each burger_data}}
 				{{#unless this.devoured}}
-
-				<div class="col-sm-9 text-center">
-					<pre>
-					{{this.id}}. {{this.burger_name}}
-					</pre>
-					{{this.Date}};
-				</div>
-				<div class="col-xs-3 text-center">
-					<form method="POST" action="/burgers/update?_method=PUT"> <!-- //PUT BUTTON/OPTION -->
-						<input type="hidden text" name="burger_id" value="{{this.id}}">
+				<div class="row">
+					<div class="col-sm-8 text-center">
 						<br/>
-						<button type="submit" class="btn btn-default">Devour it!</button>
-					</form>
+						<h6>{{this.id}}. {{this.burger_name}}</h6>
+						<img src={{this.images}} alt="Burger Image" style="height:150px; width:150px">
+						<!-- {{this.created_at}}; -->
+					</div>
+					<div class="col-sm-2 text-center">
+						<form method="POST" action="/burgers/update?_method=PUT"> <!-- //PUT BUTTON/OPTION -->
+							<br/>
+							<br/>
+							<input type="text" name="burger_id" value={{this.id}}>
+							<br/>
+							<button type="submit" class="btn btn-default">Devour it!</button>
+						</form>
+					</div>
 				</div>
 
 				{{/unless}} <!-- closing out the "unless >> handlbars-text" -->
 			{{/each}} <!-- closing out the "each >> handlbars-text" -->
 		</div>
 
-		<div class=" task col.col-sm-6 text-center" style="margin-left: 120px">
-			<h4>Burgers Devoured:</h4>
+		<div class=" task col-sm-6 text-center">
+			<h4 class="text-center">Burgers Devoured:</h4>
 
 			{{#each burger_data}}
 				{{#if this.devoured}}					
 
 					<form>
-						<input class="form-control" type="text-center" placeholder="{{this.id}}. {{this.burger_name}}" readonly>
+						<input class="form-control" type="text-center" placeholder="{{this.id}}. {{this.burger_name}}" readonly> <!-- USE: type="submit", WHEN wishing to implement the "DELETE" functionality -->
 					</form>
 				
 				{{/if}}
@@ -79,6 +79,20 @@
 		</div>	
 	</div>		
 </div>
+
+
+<!-- 	EACH of the burgers.. for reference!! 
+
+					<li>Chili-Cheeseburger</li>
+					<li>Venison Burger</li>
+					<li>Lamb Burger with Tzaski Sauce</li>
+					<li>Seared Tuna Burger</li>
+					<li>Portabella Burger</li>
+					<li>Bean Burger</li>
+					<li>In-n-Out Burger</li>
+					<li>The Ultimate Hamburger</li>
+
+ -->
 
 
 

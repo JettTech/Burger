@@ -5,8 +5,10 @@ USE burgers_db;
 
 CREATE TABLE burgers (
 	id INT NOT NULL AUTO_INCREMENT,
-	burger_name VARCHAR(50) NULL,
+	burger_name VARCHAR(255) NULL,
 	devoured BOOLEAN DEFAULT false,   -- // BOOLEAN === TINYINT(1) NULL  >>> !! WOULD THIS also WORK??  !!
+    created_at TIMESTAMP NOT NULL,
+    images TEXT NULL,
 	PRIMARY KEY (id)
 );
 

@@ -17,8 +17,9 @@ connection.connect(function(error) { // connection starts >>> connection.connect
 	if(error) {
 		return console.log("An error occured when connecting " + error.stack);
 	}
-	console.log("You are connected as id: " + connection.id);  // !! WHY is this undefined??? !!
+	console.log("You are connected as id: " + connection.threadId);
 });
+
 module.exports = connection; //this will be passed into the ORM.JS file
 
 

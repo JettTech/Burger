@@ -1,38 +1,39 @@
+
 //ROLE OF THE ORM (Object Relational Mapping) FILE
 // =====================================================================================
-//The purpose is to write functions into which inputs and conditions are passed
+//THE ORM === THE CONVERTER, ITS PURPOSE === is to write the functions into which inputs and conditions are passed
 //in a way that turns the input/conditions into Database commands like SQL
+
+
 
 // The Requires
 // =====================================================================================
 var connection = require("./connection.js");
 
-
 // Global Functions
 // =====================================================================================
 function printQuestionMark(number) {
-	var arrary = [];
+	var arrayQuestionMark = [];
 
 	for (var i = 0; i < number; i++) {
-		array.push("?"); //this will allow that (for ever num exisiting/pushed thorugh), 
+		arrayQuestionMark.push("?"); //this will allow that (for ever num exisiting/pushed thorugh), 
 		//there is an option to call it. "?" reference an option/non-mandatory
 		// query to be added to the query filter && action.
 	}
-	return array.toString(); //Transfroms the list of nums in the array INTO a Strings	
+	return arrayQuestionMark.toString(); //Transfroms the list of nums in the array INTO a Strings	
 }
 
-function objToSql(object) {
-	var array = [];
+function objToSQL(object) {
+	var arrayIndexValue = [];
 
 	for (var x in object) {
-		array.push(x + " = " + object[x]); //this will push the index AND the value of that index from the object >>> together into the above Array.
+		arrayIndexValue.push(x + " = " + object[x]); //this will push the index AND the value of that index from the object >>> together into the above Array.
 	}
-	return array.toString();
+	return arrayIndexValue.toString();
 }
 
-
 // The ORM Logic: Where inputs (through functions) output SQL Queries/Actions..
-// =====================================================================================
+// ======================================	===============================================
 var orm = {
 	all: function(tableInput, callback) {
 		var queryString = "SELECT * FROM " + tableInput + ";";
@@ -45,13 +46,13 @@ var orm = {
 	}, // !! MAKE SURE THIS IS A COMMA, NOT a semi-colon !!
 
 	create: function(table, columns, values, callback) {
-		var queryString = "INSERT INTO" + table;
+		var queryString = "INSERT INTO " + table;
 
 		queryString += " (";
 		queryString += columns.toString();
 		queryString += ") ";
 		queryString += "VALUES (";
-		queryString += printQuestionMarks(values.length);
+		queryString += printQuestionMark(values.length);
 		queryString += ") ";
 
 		console.log(queryString);
@@ -66,7 +67,7 @@ var orm = {
 		var queryString = "UPDATE " + table;
 
 		queryString += "SET";
-		queryString += objToSql(objColumnValues);
+		queryString += objToSQL(objColumnValues);
 		queryString += " WHERE ";
 		queryString += condition;
 
@@ -76,23 +77,23 @@ var orm = {
 
 			callback (result);
 		});
-	} //,  // !! MAKE SURE THIS IS A COMMA, NOT a semi-colon !!
+	},  // !! MAKE SURE THIS IS A COMMA, NOT a semi-colon !!
 
-	// delete: function(table, objColumnValues, condition, callback) {
-	// 	var queryString = "DELETE FROM" + table;
+	delete: function(table, objColumnValues, condition, callback) {
+		var queryString = "DELETE FROM " + table;
 
-	// 	queryString += "SELECT "; //MAKE SURE this is the right QUEREY (/action) choice!
-	// 	queryString += objToSql(objColumnValues);
-	// 	queryString += " WHERE ";
-	// 	queryString += condition;
+		queryString += "SELECT "; //MAKE SURE this is the right QUEREY (/action) choice!
+		queryString += objToSQL(objColumnValues);
+		queryString += " WHERE ";
+		queryString += condition;
 
-	// 	console.log(queryString);
-	// 	connection.query(queryString, function(error, result) {
-	// 		if (error) throw error
+		console.log(queryString);
+		connection.query(queryString, function(error, result) {
+			if (error) throw error
 
-	// 		callback (result);
-	// 	});
-	// }
+			callback (result);
+		});
+	}
 };
-module.exports = orm
+module.exports = orm;
 
