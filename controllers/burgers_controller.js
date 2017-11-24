@@ -10,7 +10,7 @@
 // ===========================================================
 var express = require("express");
 
-var router = express.Router();
+var router = express.Router(); //LOOK INTO THE EXPRESS NPM "ROUTER() Method"
 
 // LOCAL REQUIREs (local files to require on over...)
 // =========================================================== 
@@ -31,7 +31,7 @@ router.get("/burgers", function(request, result){
 
 router.post("/burgers/create", function(request, result){
 	burger.create(request.body.burger_name, function(result){
-		console.log(result);
+		console.log(result); //for NODE display (?!)
 		result.redirect("/"); //reloads (re-renders) the ROOT PAGE 
 	});
 });

@@ -5,7 +5,6 @@
 //in a way that turns the input/conditions into Database commands like SQL
 
 
-
 // The Requires
 // =====================================================================================
 var connection = require("./connection.js");
@@ -36,7 +35,7 @@ function objToSQL(object) {
 // ======================================	===============================================
 var orm = {
 	all: function(tableInput, callback) {
-		var queryString = "SELECT * FROM " + tableInput + ";";
+		var queryString = "SELECT * FROM " + tableInput + ";"; //MAKE SURE TO INCLUDE THE "SPACE " IN BETWEEN THE NED OF THE SQL COMMAND and the table/query data, otherwise, the system cannot read the table (correctly), and will generage an error...
 		
 		connection.query(queryString, function(error, result) {
 			if(error) throw error;
@@ -55,7 +54,7 @@ var orm = {
 		queryString += printQuestionMark(values.length);
 		queryString += ") ";
 
-		console.log(queryString);
+		console.log(queryString); //for NODE viewing...
 		connection.query(queryString, values, function(error, result) {
 			if (error) throw error
 
@@ -71,7 +70,7 @@ var orm = {
 		queryString += " WHERE ";
 		queryString += condition;
 
-		console.log(queryString);
+		console.log(queryString); //for NODE viewing...
 		connection.query(queryString, function(error, result) {
 			if (error) throw error
 
@@ -87,7 +86,7 @@ var orm = {
 		queryString += " WHERE ";
 		queryString += condition;
 
-		console.log(queryString);
+		console.log(queryString); //for NODE viewing...
 		connection.query(queryString, function(error, result) {
 			if (error) throw error
 

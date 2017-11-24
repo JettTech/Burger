@@ -12,19 +12,20 @@ var burger = {
 		],[
 			name, false //WHEN ADD the NEW burger, this sets the default of the "devoured"
 			// boolean to false (...just like for the others)
-		], callback);
+
+		], callback); //DO WE NEED TO DEFINE the CALLBACK (function) here?
 	},
 	update: function(id, callback) {
 		var condition = "id = " + id;
 		orm.update("burgers", {
 			devoured: true
-		}, condition, callback);
+		}, condition, callback); //DO WE NEED TO DEFINE the CONDITION and/ CALLBACK (function) here?
 	},
 	delete: function(id, callback) {
 		var condition = "id = " + id;
 		orm.update("burgers", {
 			devoured: true
-		}, condition, callback);
+		}, condition, callback); //DO WE NEED TO DEFINE the CONDITION and/ CALLBACK (function) here?? ... IF NOT, WHERE are they est?
 	}
 };
 module.exports = burger; //exporeted out ...to be imported into the controller.js file
