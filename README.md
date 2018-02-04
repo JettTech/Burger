@@ -1,7 +1,7 @@
 # Burger
 A restaurant app that lets users input the names of burgers they'd like to eat, display their burger titles, and "eat" them, all through a few clicks. This app uses MySQL, Node, Express, Handlebars and a homemade ORM, and employs CRUD standards to implement the changes in burger states (ie. ordered/eaten/disappeared).
 
-View the application [here](https://morning-plains-55863.herokuapp.com/)!
+Hungry for more?  Check out the daily specials at this tasty burger joint [here](https://morning-plains-55863.herokuapp.com/). ;-)
 
 Built by [Lisa Jetton](https://github.com/JettTech/).
 
