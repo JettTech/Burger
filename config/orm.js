@@ -15,7 +15,7 @@ function printQuestionMark(number) {
 	var arrayQuestionMark = [];
 
 	for (var i = 0; i < number; i++) {
-		arrayQuestionMark.push("?"); //this will allow that (for ever num exisiting/pushed thorugh), 
+		arrayQuestionMark.push("?"); //this will allow that (for ever num exisiting/pushed through), 
 		//there is an option to call it. "?" reference an option/non-mandatory
 		// query to be added to the query filter && action.
 	}
@@ -39,7 +39,6 @@ var orm = {
 		
 		connection.query(queryString, function(error, result) {
 			if(error) throw error;
-
 			callback(result); //this should console.log(/print out) all the logged items in the provided table(which in this case should the "burgers" table);
 		});
 	}, // !! MAKE SURE THIS IS A COMMA, NOT a semi-colon !!
@@ -56,8 +55,7 @@ var orm = {
 
 		console.log(queryString); //for NODE viewing...
 		connection.query(queryString, values, function(error, result) {
-			if (error) throw error
-
+			if (error) throw error;
 			callback (result);
 		});
 	},  // !! MAKE SURE THIS IS A COMMA, NOT a semi-colon !!
@@ -72,8 +70,7 @@ var orm = {
 
 		console.log(queryString); //for NODE viewing...
 		connection.query(queryString, function(error, result) {
-			if (error) throw error
-
+			if (error) throw error;
 			callback (result);
 		});
 	},  // !! MAKE SURE THIS IS A COMMA, NOT a semi-colon !!
@@ -88,7 +85,7 @@ var orm = {
 
 		console.log(queryString); //for NODE viewing...
 		connection.query(queryString, function(error, result) {
-			if (error) throw error
+			if (error) throw error;
 
 			callback (result);
 		});

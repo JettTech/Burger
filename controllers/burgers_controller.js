@@ -19,34 +19,35 @@ var burger = require("../models/burger.js");
 
 // Routes
 // =========================================================== 
-router.get("/", function(request,result){
-	result.redirect("/burgers");
+router.get("/", function(request,response){
+	response.redirect("/burgers");
 })
 
-router.get("/burgers", function(request, result){
+router.get("/burgers", function(request, response){
 	burger.all(function (burgerData) {
-		result.render("index", {burger_data: burgerData});
+		response.render("index", {burger_data: burgerData});
 	});
 });
 
-router.post("/burgers/create", function(request, result){
-	burger.create(request.body.burger_name, function(result){
-		console.log(result); //for NODE display (?!)
-		result.redirect("/"); //reloads (re-renders) the ROOT PAGE 
+router.post("/burgers/create", function(request, response){
+	burger.create(request.body.burger_name, function(response){
+		console.log(response); //for NODE display (?!)
+		response.redirect("/"); //reloads (re-renders) the ROOT PAGE 
 	});
 });
 
-router.put("/burgers/update", function(request, result) {
-	burger.update(request.body.burger_id, function(result) {
-		console.log(result);
-		result.redirect("/"); //reloads (re-renders) the ROOT PAGE 
+router.put("/burgers/:id", function(request, response) {
+	burger.update(request.params.id, function(response) {
+		console.log(response);
+		response.sendStatus(200);
 	});
 });
 
-router.delete("/burgers/delete", function(request, result) {
-	burger.delete(request.body.burger_id, function(result) {
-		console.log(result);
-		result.redirect("/");
+router.delete("/burgers/delete", function(request, response) {
+	burger.delete(request.body.burger_id, function(response) {
+		console.log(response);
+		response.redirect("/"); //reloads (re-renders) the ROOT PAGE 
 	});
 });
+
 module.exports = router; //exporting the router, and all its routes (for ue on the server.js)

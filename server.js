@@ -4,15 +4,11 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var express = require("express");
 var app = express();
-
-////////////// ***** NEW DEPENDENCIES TO ENSURE: ****** //////////////////
-var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
 
-
-// LOCAL REQUIREs (local files to require on over...)
-// =========================================================== 
-var routes = require("./controllers/burgers_controller.js");
+////////////// ***** NEW DEPENDENCIES TO ENSURE: ****** //////////////////
+//var methodOverride = require("method-override");
+var exphbs = require("express-handlebars");
 
 
 // DEFINITION OF THE PORT and ENGINE
@@ -23,15 +19,16 @@ app.set("view engine", "handlebars"); //THIS IS (and the app.engine above) the E
 
 // Routes
 // =========================================================== 
-app.use(express.static(__dirname + "/public")); //this offers the public folder as
+app.use(express.static("/public")); //this offers the public folder as
 // local folder accessible to all files (the public folder becomes the new starting point for any files outside the folder to access any files within that folder.)
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(methodOverride("method"));//this method will allow the POST to override with "?_method=DELETE"
+//app.use(methodOverride("method"));//this method will allow the POST to override with "?_method=DELETE"
 
+var routes = require("./controllers/burgers_controller.js");
 app.use("/", routes); //this will refer to the var "routes" above, which requires in thh Controller JS file.
-app.use("/update", routes);
-app.use("/create", routes);
+// app.use("/update", routes);
+// app.use("/create", routes);
 
 
 // Listener
