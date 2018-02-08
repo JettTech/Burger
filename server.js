@@ -7,7 +7,7 @@ var app = express();
 var exphbs = require("express-handlebars");
 
 ////////////// ***** NEW DEPENDENCIES TO ENSURE: ****** //////////////////
-//var methodOverride = require("method-override");
+var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
 
 
@@ -19,7 +19,7 @@ app.set("view engine", "handlebars"); //THIS IS (and the app.engine above) the E
 
 // Routes
 // =========================================================== 
-app.use(express.static("/public")); //this offers the public folder as
+app.use(express.static(__dirname + "/public")); //this offers the public folder as
 // local folder accessible to all files (the public folder becomes the new starting point for any files outside the folder to access any files within that folder.)
 
 app.use(bodyParser.urlencoded({ extended: false }));
