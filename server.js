@@ -11,6 +11,13 @@ var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
 
 
+app.use(express.static(__dirname + "/public")); //this offers the public folder as
+// local folder accessible to all files (the public folder becomes the new starting point for any files outside the folder to access any files within that folder.)
+
+app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(methodOverride("method"));//this method will allow the POST to override with "?_method=DELETE"
+
+
 // DEFINITION OF THE PORT and ENGINE
 // ===========================================================
 var PORT = process.env.PORT || 4000;  //This will allow the port to work off of the local port envorionemnt, defaulting to the localhost port 4000.
@@ -19,12 +26,6 @@ app.set("view engine", "handlebars"); //THIS IS (and the app.engine above) the E
 
 // Routes
 // =========================================================== 
-app.use(express.static(__dirname + "/public")); //this offers the public folder as
-// local folder accessible to all files (the public folder becomes the new starting point for any files outside the folder to access any files within that folder.)
-
-app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(methodOverride("method"));//this method will allow the POST to override with "?_method=DELETE"
-
 var routes = require("./controllers/burgers_controller.js");
 app.use("/", routes); //this will refer to the var "routes" above, which requires in thh Controller JS file.
 // app.use("/update", routes);
