@@ -13,7 +13,7 @@ $(document).ready(function() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   // AJAX CALLS > UPDATE PAGE CONTENT:
-    $(".enter-button").on("submit", function(event) { //on the "devour-form" btn submit
+    $(".eatBurgerForm").on("submit", function(event) { //on the "devour-form" btn submit
     	event.preventDefault();
 	    var burger_id = $(this).children(".burger_id").val();
 	    console.log(burger_id)

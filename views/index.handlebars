@@ -54,10 +54,13 @@
 					<div class="col-sm-8 text-center">
 						<br/>
 						<br/>
-						<form method="POST" action="/burgers/update?_method=PUT"> 
+						<form class="eatBurgerForm" method="POST" action="/burgers/update?_method=PUT"> 
 							<input input type="hidden" class="burger_id" type="text" value="{{this.id}}">
 							<button class="btn btn-primary" type="submit"><h4>{{this.id}}. {{this.burger_name}}</h4></button>
-							<img src={{this.images}} alt="Burger Image">
+							  
+							  {{#if this.images}}
+								<img src={{this.images}} alt="Burger Image">
+							  {{/if}}
 						</form>
 					</div>
 				</div>
@@ -77,7 +80,7 @@
 
 				{{#if this.devoured}}					
 
-						<input class="form-control" type="text" placeholder="'{{this.id}}.{{this.burger_name}}" readonly> <!-- USE: type="submit", WHEN wishing to implement the "DELETE" functionality -->
+						<input class="form-control" type="text" placeholder="{{this.id}}. {{this.burger_name}}" readonly> <!-- USE: type="submit", WHEN wishing to implement the "DELETE" functionality -->
 				
 				{{/if}}
 
