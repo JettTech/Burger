@@ -39,10 +39,8 @@ app.listen(PORT, function(request, result) {
 });
 
 
-// PORT Testing || Console Testing
+// General PORT Testing || Console Testing
 // ===========================================================
 // app.get('/', function (req, res) { //DEFAULT RESPONSE ON THE HOME PAGE.
 //   res.send('Hello World');
 // });
-
-//console.log();
